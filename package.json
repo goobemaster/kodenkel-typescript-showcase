@@ -1,0 +1,15 @@
+{
+    "name": "kodenkel-ts-get-started",
+    "version": "1.0.0",
+    "description": "",
+    "author": "Gabor Major <gabor.major@csn.hu>",
+    "private": true,
+    "license": "MIT",
+    "dependencies": {
+        "gulp-cli": "2.3.0",
+        "gulp": "4.0.2",
+        "gulp-typescript": "6.0.0-alpha.1",
+        "typescript": "4.2.2",
+        "systemjs": "6.1.0"
+    }
+}

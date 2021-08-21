@@ -1,0 +1,27 @@
+<!doctype html>
+<html class="no-js h-100 m-0 p-0" lang="en">
+    <head>
+        <title>kodenkel TS - Get Started</title>
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Dependencies -->
+        <!-- put them here, none for now -->
+
+        <!-- Application -->
+        <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+        <link rel="stylesheet" href="assets/css/application.css">
+    </head>
+
+    <body class="h-100 m-0">
+        <script src="assets/js/system.min.js"></script>
+        <script src="assets/js/named-register.min.js"></script>
+        <script src="assets/js/amd.min.js"></script>
+        <script>
+            System.import('./application.js')
+                .catch(console.error.bind(console));
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,5 @@
+node_modules
+dist/application.js
+dist/assets/js/*.js
+*.zip
+package-lock.json
