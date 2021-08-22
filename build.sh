@@ -5,6 +5,7 @@
 rm dist/application.js
 rm application-dist.zip
 
+npm install
 npx gulp
 
 # 2 - Copying dependencies to dist
