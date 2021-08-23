@@ -2,7 +2,11 @@
 
 This repository contains a minimal TypeScript web client application boilerplate/scaffold/skeleton/template (pick your choice of word).
 
-I plan to update this repository in tandem with an upcoming tutorial on my blog over at https://kodenkel.com/
+I plan to update this repository in tandem with an upcoming tutorial on my blog over at:
+
+https://www.kodenkel.com/tutorial/getting-started-with-typescript-frameworkless-browser-application
+
+Please check out the tutorial, this readme is meant to be short.
 
 For the time being feel free to browse, inspect and clone.
 
