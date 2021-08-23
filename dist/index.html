@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js h-100 m-0 p-0" lang="en">
+<html class="no-js" lang="en">
     <head>
         <title>kodenkel TS - Get Started</title>
         <meta charset="utf-8">
@@ -14,12 +14,13 @@
         <link rel="stylesheet" href="assets/css/application.css">
     </head>
 
-    <body class="h-100 m-0">
+    <body>
         <script src="assets/js/system.min.js"></script>
         <script src="assets/js/named-register.min.js"></script>
         <script src="assets/js/amd.min.js"></script>
         <script>
             System.import('./application.js')
+                .then(() => System.import('Application'))
                 .catch(console.error.bind(console));
         </script>
     </body>
