@@ -1,9 +1,7 @@
-import { Registry } from "./registry/Registry";
-import { RegistryStorage } from "./registry/RegistryStorage";
-import { CookieRegistry } from "./registry/CookieRegistry";
-import { LocalStorageRegistry } from "./registry/LocalStorageRegistry";
-import { MemoryRegistry } from "./registry/MemoryRegistry";
-import { NullRegistry } from "./registry/NullRegistry";
+import { Container } from "./widget/Container";
+import { FlexContainer } from "./widget/FlexContainer";
+import { Card } from "./widget/Card";
+import { Random } from "./utility/Random";
 
 /**
  * Entry point for the application, and with the help of TypeScript,
@@ -12,48 +10,44 @@ import { NullRegistry } from "./registry/NullRegistry";
 export class Application {
     private static instance: Application;
 
-    private registry: Registry;
+    protected BODY: HTMLElement = document.getElementsByTagName('body')[0];
+    protected HTML: HTMLElement = document.getElementsByTagName('html')[0];
 
     private constructor() {
-        this.registry = this.getRegistry(RegistryStorage.LOCAL_STORAGE);
+        this.HTML.style.padding = '15px';
 
-        this.appendToBody('<h1>Strategy Pattern</h1><h2>Reading/Writing to various registries</h2>');
-        this.appendToBody('<p>Registry storage is: <b>' + this.registry.getStorageType().toString() + '</b></p>');
+        let outerContainer = new Container(this.BODY, 'outer');
+        outerContainer.setPadding(15);
+        outerContainer.setBackgroundColor('lightskyblue');
+        outerContainer.setHeight('250px');
 
-        this.registry.write('title', 'Learning TypeScript');
-        this.registry.write('url', 'https://www.kodenkel.com/tutorial/getting-started-with-typescript-frameworkless-browser-application');
+        let innerContainer = new FlexContainer(this.BODY, 'inner', 'div');
+        innerContainer.setPadding(15);
+        innerContainer.setBackgroundColor('#ffffff');
 
-        this.appendToBody('<p>' + JSON.stringify(this.registry.getAllKeys()) + '</p>');
+        outerContainer.addSubWidget(innerContainer);
 
-        this.registry.getAllKeys().forEach((key: string) => {
-            this.appendToBody(`<p>${key} = ${this.registry.read(key)}</p>`);
-        });
+        for (let i = 0; i < 5; i++) {
+            let randomCard: Card = new Card(innerContainer.getWidgetElement(), 'card_' + i.toString());
+            randomCard.setTitle(Random.getString());
+            randomCard.setContent('Lorem Ipsum...');
+            if (i < 4) randomCard.getWidgetElement().style.marginRight = '15px';
+
+            innerContainer.addSubWidget(randomCard);
+        }
+        console.log(innerContainer.subWidgetCount() + ' sub widgets added.');
+
+        let firstCard: Card = innerContainer.getSubWidgetByIndex(0) as Card;
+        firstCard.setTitle('Composite Pattern');
+
+        innerContainer.removeSubWidgetByName('card_1');
+
+        console.log(innerContainer.subWidgetCount() + ' sub widgets remain after removal.');
     }
 
     public static getInstance(): Application {
         if (Application.instance === undefined) Application.instance = new Application();
         return Application.instance;
-    }
-
-    private getRegistry(storage: RegistryStorage): Registry {
-        switch (storage) {
-            case RegistryStorage.COOKIE:
-                return new CookieRegistry();
-                break;
-            case RegistryStorage.LOCAL_STORAGE:
-                return new LocalStorageRegistry();
-                break;
-            case RegistryStorage.MEMORY:
-                return new MemoryRegistry();
-                break;
-            default:
-                return new NullRegistry();
-            
-        }
-    }
-
-    private appendToBody(html: string): void {
-        document.getElementsByTagName('body')[0].innerHTML += html;
     }
 }
 

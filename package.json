@@ -10,6 +10,7 @@
         "gulp": "4.0.2",
         "gulp-typescript": "6.0.0-alpha.1",
         "typescript": "4.2.2",
-        "systemjs": "6.1.0"
+        "systemjs": "6.1.0",
+        "modern-normalize": "1.1.0"
     }
 }
