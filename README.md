@@ -7,6 +7,10 @@ using only HTML, CSS and TypeScript. Some *libraries* might get included later o
 
 The main branch will always contain the pre-configured sandbox. Feature branches will contain the subject of each Part of the series.
 
+If you like this project, or found it useful:
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/kodenkel)
+
 ## Part 1 - Setting up the sandbox, Singleton class
 
 https://www.kodenkel.com/tutorial/getting-started-with-typescript-frameworkless-browser-application
